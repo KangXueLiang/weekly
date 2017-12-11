@@ -614,10 +614,4 @@ Vue.js 是一个基于组件的框架。如果你不知道何时创建组件可�
 
 ### 如何提供帮助？
 
-Fork 和提 PR 以帮助我们改进或者可以给我们提 [Issue](https://github.com/pablohpsilva/vuejs-component-style-guide/issues/new)。
-
-## 译者
-
-* [杨小福](https://github.com/xiaofuzi)
-* [机智的马里奥](https://github.com/wysxhlyy)
-* [根号三](https://github.com/sqrthree)
+Fork 和提 PR 以帮助我们改进或者可以给我们提 [Issue](https://github.com/Chasonhong/weekly/issues/new)。
