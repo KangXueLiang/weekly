@@ -1,62 +1,62 @@
 ---
-nav: zh-Hant
-search: zh-Hant
+nav: zh-Hans
+search: zh-Hans
 ---
 
 # docute
 
-docute 讓你無需編譯文件享受到無縫的文檔撰寫、發布體驗。
+docute 让你无需编译文件享受到无缝的文档撰写、发布体验。
 
 <p class="danger">
-  This translation is out-dated, please check out the <a href="#" router-link="/home">English docs</a> instead.
+  文档翻译已经严重滞后，请以 <a router-link="/home">英文文档</a> 为准。
 </p>
 
-## 簡介
+## 简介
 
-`docute` 讓你直接寫 markdown 文件作為文檔來顯示而不需要編譯成 html 這一步，你的文檔目錄裏只需要一個首頁 `index.html` 和你的配置文件 `config.js`。`docute` 會直接渲染這些 markdown 文件為一個單頁應用。
+`docute` 让你直接写 markdown 文件作为文档来显示而不需要编译成 html 这一步，你的文档目录里只需要一个首页 `index.html` 和你的配置文件 `config.js`。`docute` 会直接渲染这些 markdown 文件为一个单页应用。
 
-## 安裝
+## 安装
 
-使用 `docute-cli` 來方便初始化一個文檔。
+使用 `docute-cli` 来方便初始化一个文档。
 
-用 npm 安裝:
+用 npm 安装:
 
 ```bash
 npm i -g docute-cli
 ```
 
-用 Yarn 安裝
+用 Yarn 安装
 
 ```bash
 yarn global add docute-cli
 ```
 
-## 快速入門
+## 快速入门
 
-假設你想將 markdown 文檔存放在 `./docs` 目錄:
+假设你想将 markdown 文档存放在 `./docs` 目录:
 
 ```bash
 docute init ./docs
 ```
 
-這樣就成功初始化了該目錄，目前為止你的文檔目錄中有:
+这样就成功初始化了该目录，目前为止你的文档目录中有:
 
-- README.md: 作為文檔首頁的內容顯示
-- index.html: 訪問網站時渲染的 html
+- README.md: 作为文档首页的内容显示
+- index.html: 访问网站时渲染的 html
 - config.js: 配置文件
-- .nojekyll: 表明這不是一個 jekyll 網站，如果你不是要發布到 github pages 那麽可以忽略它
+- .nojekyll: 表明这不是一个 jekyll 网站，如果你不是要发布到 github pages 那么可以忽略它
 
-然後你可以在本地預覽文檔:
+然后你可以在本地预览文档:
 
 ```bash
 docute ./docs
 ```
 
-打開 http://localhost:8080 就能看到你的網站了。
+打开 http://localhost:8080 就能看到你的网站了。
 
-### 手動開始
+### 手动开始
 
-你可能並不喜歡 node.js 或 npm，也可能覺得安裝它們很麻煩，其實你並不需要 `docute-cli`，我們唯一需要的只是一個 `index.html` 文件:
+你可能并不喜欢 node.js 或 npm，也可能觉得安装它们很麻烦，其实你并不需要 `docute-cli`，我们唯一需要的只是一个 `index.html` 文件:
 
 ```html
 <!DOCTYPE html>
@@ -71,14 +71,14 @@ docute ./docs
 </head>
 <body>
   <div id="app"></div>
-  <!-- 你也可以把包含 $config 配置的腳本放到單獨的文件裏 -->
-  <!-- 例如 config.js -->
+  <!-- 你也可以把包含 $config 配置的脚本放到单独的文件里 -->
+  <!-- 比如 config.js -->
   <script>
     self.$config = {
       // 配置...
     }
   </script>
-  <!-- 加載 docute 的 js 庫 -->
+  <!-- 加载 docute 的 js 库 -->
   <script src="https://unpkg.com/docute/dist/docute.js"></script>
 </body>
 </html>
@@ -86,7 +86,7 @@ docute ./docs
 
 ## 配置文件
 
-執行 `docute init` 後你的文檔目錄會有一個 `config.js` 配置文件:
+执行 `docute init` 后你的文档目录会有一个 `config.js` 配置文件:
 
 ```js
 self.$config = {
@@ -94,50 +94,49 @@ self.$config = {
 }
 ```
 
-### 首頁
+### 首页
 
-文檔目錄裏的 `README.md` 文件會渲染為文檔首頁，但有時你可能會想使用其他文件。例如你將 `./docs` 目錄裏的文件作為 github pages 使用的時候你可能想直接使用項目根目錄裏的 `README.md`，你可以通過配置指向該文件:
+文档目录里的 `README.md` 文件会渲染为文档首页，但有时你可能会想使用其它文件。比如你将 `./docs` 目录里的文件作为 github pages 使用的时候你可能想直接使用项目根目录里的 `README.md`，你可以通过配置指向该文件:
 
 ```js
 self.$config = {
-  // 項目根目錄裏的 README.md
+  // 项目根目录里的 README.md
   home: 'https://raw.githubusercontent.com/egoist/docute/master/README.md'
 }
 ```
 
-### Landing 頁面
+### Landing 页面
 
-你可以開啟 `landing` 選項來啟用 Landing 頁面:
+你可以开启 `landing` 选项来启用 Landing 页面:
 
 ```js
 self.$config = {
-  // true 將會預設使用 `landing.html`
+  // true 将会默认使用 `landing.html`
   landing: true,
-  // 也可以用自定義頁面
+  // 也可以用自定义页面
   landing: '_my-landing.html',
-  // 當然 markdown 文件也可以
+  // 当然 markdown 文件也可以
   landing: 'landing.md'
 }
 ```
 
-如果你開啟了這個功能，Landing 頁面的路由將是 `/`，而文檔的首頁將改為用 `/home` 訪問。
+如果你开启了这个功能，Landing 页面的路由将是 `/`，而文档的首页将改为用 `/home` 访问。
 
 <p class="warning">
-  你不能再動態添加的頁面裏使用 <code>script</code> 標簽，因為動態添加的內容 JS 不會被瀏覽器執行。
+  你不能在动态添加的页面里使用 <code>script</code> 标签，因为动态添加的内容 JS 不会被浏览器执行。
 </p>
 
-### 多頁面
+### 多页面
 
-當然你也可以添加更多頁面來顯示不同內容。例如添加一個 `chinese.md` 用作文檔的中文翻譯，然後就能通過 `/#/chinese` 訪問到這個頁面了！
+当然你也可以添加更多页面来显示不同内容。比如添加一个 `chinese.md` 用作文档的中文翻译，然后就能通过 `/#/chinese` 访问到这个页面了！
 
-多頁面支持子目錄，例如一個文件被放到 `language/chinese.md` 那麽它的訪問路徑就是 `/#/lanaguage/chinese`。
+多页面支持子目录，比如一个文件被放到 `language/chinese.md` 那么它的访问路径就是 `/#/lanaguage/chinese`。
 
-注意: 像 `about/README.md` 這樣的文件對應的路由是 `/#/about/`， 而對於路由 `/#/about` 它的源文件是 `about.md`。
+注意: 像 `about/README.md` 这样的文件对应的路由是 `/#/about/`， 而对于路由 `/#/about` 它的源文件是 `about.md`。
 
-### 側邊欄
+### 侧边栏
 
-To disable the sidebar globally, set it to `false` in `config.js`:
-想預設隱藏側邊欄，可以在 `config.js` 中將其設置為 `false`:
+想默认隐藏侧边栏，可以在 `config.js` 中将其设置为 `false`:
 
 ```js
 self.$config = {
@@ -145,16 +144,16 @@ self.$config = {
 }
 ```
 
-或者只隱藏某個頁面的側邊欄:
+或者只隐藏某个页面的侧边栏:
 
 ```markdown
 ---
 sidebar: false
 ---
-用 front-matter 隱藏這個頁面的側邊欄
+用 front-matter 隐藏这个页面的侧边栏
 ```
 
-左下角也會有個按鈕用於切換側邊欄，你也可以隱藏它:
+左下角也会有个按钮用于切换侧边栏，你也可以隐藏它:
 
 ```js
 self.$config = {
@@ -162,35 +161,60 @@ self.$config = {
 }
 ```
 
-#### 目錄表
+#### 目录表
 
-側邊欄的目錄表 (table of contents) 是從你的 markdown 文件解析來的，我們獲取 markdown 裏的 h2 ~ h5 標題來構成這個目錄。
+侧边栏的目录表 (table of contents) 是从你的 markdown 文件解析来的，我们获取 markdown 里的 h2 ~ h5 标题来构成这个目录。
 
-預設只會顯示 h2 到 h4 的標題，其他標題只有在你頁面滾動到相應區域才會顯示，不過你可以更改最深顯示的標題層級:
+默认只会显示 h2 到 h4 的标题，其它标题只有在你页面滚动到相应区域才会显示，不过你可以更改最深显示的标题层级:
 
 ```js
 self.$config = {
-  // 顯示 h2 到 h4 的標題
+  // 显示 h2 到 h4 的标题
   tocVisibleDepth: 3
 }
 ```
 
-### 導航欄
+要彻底隐藏目录表把 `toc` 设置为 `false` 即可。
 
-當你有多個頁面的時候你很可能需要一個導航欄方便用戶瀏覽，你可以通過配置文件添加導航欄:
+### 导航栏
+
+当你有多个页面的时候你很可能需要一个导航栏方便用户浏览，你可以通过配置文件添加导航栏:
 
 ```js
 self.$config = {
   nav: [
-    // 首頁
+    // 首页
     {title: 'Home', path: '/'},
-    // 中文文檔
-    {title: '中文文檔', path: '/language/chinese'}
+    // 中文文档
+    {title: '中文文档', path: '/language/chinese'}
   ]
 }
 ```
 
-#### 圖標
+<p class="tip">
+  `path` 也可以指向一个外部链接，那样它就会像一个普通的超链接一样工作。<br><br>
+  除此之外你也可以用 `source` 来指定一个自定义的 markdown 文件而不是默认的 `路径加.md` 这种形式，比如 `source: 'https://foo.com/bar.md'`
+</p>
+
+#### Custom source
+
+A path like `/language/chinese` will make docute fetch `/language/chinese.md`, you can use `source` option to fetch another file:
+
+```js
+{
+  title: 'Chinese',
+  path: '/language/chinese',
+  source: '/language/chinese-foo.md'
+  // or even external file
+  source: 'https://raw.githubusercontent.com/user/repo/master/file.md'
+}
+```
+
+<p class="tip">
+  You may wonder why there's `$config.home` option when we already have `source` option, that's because `source` option is only available for nav item, while `$config.home` is always available no matter if you add `/` to nav.
+</p>
+
+#### 图标
 
 ##### Icon short-hand
 
@@ -286,9 +310,9 @@ Check out [index.html](https://github.com/egoist/docute/blob/8aa85c42251aaa7298b
 
 There're many resources for good free SVG icons, for example: [bytesize-icons](https://github.com/danklammer/bytesize-icons) and [simple icons](https://simpleicons.org/).
 
-##### 具名圖標
+##### 具名图标
 
-你可以設置多套圖標，然後給不同頁面指定不同圖標:
+你可以设置多套图标，然后给不同页面指定不同图标:
 
 ```js
 self.$config = {
@@ -299,7 +323,7 @@ self.$config = {
 }
 ```
 
-現在所有頁面都會使用 `default` 這套圖標，你可以通過 front-matter 指定頁面使用其他圖標，例如使用 `chinese`:
+现在所有页面都会使用 `default` 这套图标，你可以通过 front-matter 指定页面使用其它图标，比如使用 `chinese`:
 
 ```markdown
 ---
@@ -308,49 +332,94 @@ icons: chinese
 你好世界
 ```
 
-#### 下拉菜單
+#### 下拉菜单
 
-顯示一個下拉菜單以容納多個頁面:
+显示一个下拉菜单以容纳多个页面:
 
 ```js
 self.$config = {
   nav: [
-    {title: '其他語言', type: 'dropdown', items: [
+    {title: '其他语言', type: 'dropdown', items: [
       {title: '中文', path: '/language/chinese'},
-      {title: '日語', path: '/language/japanese'}
+      {title: '日语', path: '/language/japanese'}
     ]}
   ]
 }
 ```
 
-#### 具名導航
+##### matchPath
 
-你可能想要在不同的頁面顯示不同的導航欄，例如英文文檔用預設導航單，然後中文文檔用漢化了的導航欄。
+Type: `RegExp`
 
-當配置文件中的 `nav` 選項是一個數組的時候，它會被作為所有頁面的預設導航欄，但是你也可以把它設置為一個純對象 `{}` 來擁有多個導航欄。
+To make dropdown menu display the actual title of active page, for example, show `Chinese` instead of `Languages` as the dropdown title when user enters relevant page, use `matchPath`. The target of `matchPath` is `this.$route.path`,eg: in `https://example.com/en/get-started` the target is `/en/get-started`
+
+```js
+self.$config = {
+  nav: [{
+    title: 'Languages', type: 'dropdown', items: [{
+      path: '/en',
+      title: 'English',
+      // show `English` instead of `Languages` as the dropdown title
+      // only match `/en` and `/en/xxx` not `/enxxx`
+      matchPath: /^\/en[\/$]/
+    }]
+  }]
+}
+```
+
+If no macthed item was found, it uses the title of `dropdown` menu instead.
+
+##### `label` and `sep`
+
+To have such dropdown menu:
+
+<img src="/assets/dropdown-label-sep.png" alt="label" width="300">
+
+You will need the `label` and `sep` helper:
+
+```js
+self.$config = {
+  nav: [
+    {
+      title: 'Ecosystem', type: 'dropdown', items: [
+        {type: 'label', title: 'Help'},
+        // ... items
+        {type: 'sep'} // separator
+        // ... other items
+      ]
+    }
+  ]
+}
+```
+
+#### 具名导航
+
+你可能想要在不同的页面显示不同的导航栏，比如英文文档用默认导航单，然后中文文档用汉化了的导航栏。
+
+当配置文件中的 `nav` 选项是一个数组的时候，它会被作为所有页面的默认导航栏，但是你也可以把它设置为一个纯对象 `{}` 来拥有多个导航栏。
 
 ```js
 self.$config = {
   nav: {
     default: [{title: 'Home', path: '/'}],
-    chinese: [{title: '首頁', path: '/chinese'}]
+    chinese: [{title: '首页', path: '/chinese'}]
   }
 }
 ```
 
-現在你擁有兩個有各自名字的導航欄，目前為止所有頁面還是只會使用 `default` 這個預設導航欄，你可以通過 markdown 文件裏的 front-matter 來切換:
+现在你拥有两个有各自名字的导航栏，目前为止所有页面还是只会使用 `default` 这个默认导航栏，你可以通过 markdown 文件里的 front-matter 来切换:
 
 ```markdown
 ---
 nav: chinese
 ---
-<!-- 現在這個頁面的導航欄就是叫 chinese 的這個了 -->
+<!-- 现在这个页面的导航栏就是叫 chinese 的这个了 -->
 你好世界！
 ```
 
 ### Markdown 配置
 
-docute 使用 [marked](https://github.com/chjj/marked) 來解析 markdown 代碼，你可以調整 marked 的預設參數:
+docute 使用 [marked](https://github.com/chjj/marked) 来解析 markdown 代码，你可以调整 marked 的默认参数:
 
 ```js
 self.$config = {
@@ -361,11 +430,11 @@ self.$config = {
 }
 ```
 
-完整的參數說明請參考[官方文檔](https://github.com/chjj/marked#options-1)。
+完整的参数说明请参考[官方文档](https://github.com/chjj/marked#options-1)。
 
 ### debug
 
-Set `debug` to `true` to enable vue-devtools:
+将 `debug` 设置为 `true` 来启用浏览器的 vue-devtools 插件:
 
 ```js
 self.$config = {
@@ -375,20 +444,20 @@ self.$config = {
 
 ## 指南
 
-### 頁面標題
+### 页面标题
 
-每個頁面在瀏覽器標簽欄中顯示的標題預設是配置文件中 `nav` 裏你定義的 `title` 的值，這個 `title` 的值也會被用作導航欄中顯示的文字。
+每个页面在浏览器标签栏中显示的标题默认是配置文件中 `nav` 里你定义的 `title` 的值，这个 `title` 的值也会被用作导航栏中显示的文字。
 
-不過對於瀏覽器標簽欄，你也可以直接通過 markdown 文件裏的 front-matter 來覆蓋頁面在標簽欄中顯示的標題:
+不过对于浏览器标签栏，你也可以直接通过 markdown 文件里的 front-matter 来覆盖页面在标签栏中显示的标题:
 
 ```markdown
 ---
-title: 首頁
+title: 首页
 ---
-例如這個頁面在導航欄中顯示成「簡體中文」可是在標簽欄中想把它顯示為「首頁」。
+比如这个页面在导航栏中显示成「简体中文」可是在标签栏中想把它显示为「首页」。
 ```
 
-### 代碼高亮
+### 代码高亮
 
 `docute` uses `Prism.js` to highlight your code blocks, however only a few languages are supported by default, you can highlight other languages by:
 
@@ -429,57 +498,71 @@ The built-in languages are:
 
 Visit https://unpkg.com/prismjs/components/ for all available programming languages.
 
-### 文檔助手
+### 文档助手
 
-#### 預置 CSS 樣式
+#### 预置 CSS 样式
 
-使用預置的 CSS 樣式能讓你的文檔更易讀。
+使用预置的 CSS 样式能让你的文档更易读。
 
 ##### p.tip
 
-顯示一段提示
+显示一段提示
 
 ```html
 <p class="tip">
-  docute 對新手和專家都很實用！
+  docute 对新手和专家都很实用！
 </p>
 ```
 
-它的呈現效果是:
+它的呈现效果是:
 
 <p class="tip">
-  docute 對新手和專家都很實用！
+  docute 对新手和专家都很实用！
 </p>
 
 ##### p.warning
 
-類似 `p.tip` 但更為強調:
+类似 `p.tip` 但更为强调:
 
 ```html
 <p class="warning">
-  雷神小動，刺雲雨零耶，君將留？<br>
-  雷神小動，雖不零，吾將留妹留者。<br>
+  雷神小动，刺云雨零耶，君将留？<br>
+  雷神小动，虽不零，吾将留妹留者。<br>
   <strong>日文</strong>：<br><br>
-  鳴神の 少し之よみて さし曇り 雨も降らんか 君を留めん<br>
-  鳴神の 少し之よみて 降らず之も 我は止まらん 妹し留めば<br>
-  <strong>譯文：</strong><br><br>
-  隱約雷鳴 陰霾天空 但盼風雨來 能留你在此<br>
-  隱約雷鳴 陰霾天空 即使天無雨 我亦留此地<br>
+  鸣神の 少しとよみて さし昙り 雨も降らんか 君を留めん<br>
+  鸣神の 少しとよみて 降らずとも 我は止まらん 妹し留めば<br>
+  <strong>译文：</strong><br><br>
+  隐约雷鸣 阴霾天空 但盼风雨来 能留你在此<br>
+  隐约雷鸣 阴霾天空 即使天无雨 我亦留此地<br>
 </p>
 ```
 
-它的呈現效果是:
+它的呈现效果是:
 
 <p class="warning">
-  雷神小動，刺雲雨零耶，君將留？<br>
-  雷神小動，雖不零，吾將留妹留者。<br><br>
+  雷神小动，刺云雨零耶，君将留？<br>
+  雷神小动，虽不零，吾将留妹留者。<br><br>
   <strong>日文</strong>：<br>
-  鳴神の 少し之よみて さし曇り 雨も降らんか 君を留めん<br>
-  鳴神の 少し之よみて 降らず之も 我は止まらん 妹し留めば<br><br>
-  <strong>譯文：</strong><br>
-  隱約雷鳴 陰霾天空 但盼風雨來 能留你在此<br>
-  隱約雷鳴 陰霾天空 即使天無雨 我亦留此地<br>
+  鸣神の 少しとよみて さし昙り 雨も降らんか 君を留めん<br>
+  鸣神の 少しとよみて 降らずとも 我は止まらん 妹し留めば<br><br>
+  <strong>译文：</strong><br>
+  隐约雷鸣 阴霾天空 但盼风雨来 能留你在此<br>
+  隐约雷鸣 阴霾天空 即使天无雨 我亦留此地<br>
 </p>
+
+**小提示: 在 HTML 中也可以使用 Markdown!**
+
+##### p.danger
+
+```html
+<p class="danger">
+  This is dangerous!
+</p>
+```
+
+---
+
+如果你不想 tip 有红绿黄这些背景颜色，可以添加一个 `no-bg` 类。
 
 #### Navigation links
 
@@ -487,24 +570,24 @@ Links like `[Go](#heading-slug)` will navagate you to `?id=heading-slug` in curr
 
 Links like `[Go](/page#heaing-slug)` will navigate you to `/page?id=heading-slug` 
 
-#### 全局變量
+#### 全局变量
 
-你可能會需要這些全局變量:
+你可能会需要这些全局变量:
 
 ```js
 docute
-docute.version // docute 的版本號
-docute.store // Vuex store 實例
-docute.router // Vue router 實例
+docute.version // docute 的版本号
+docute.store // Vuex store 实例
+docute.router // Vue router 实例
 
-Vue // Vue 構造函數
+Vue // Vue 构造函数
 ```
 
-### 流量統計
+### 流量统计
 
 #### Google Analytics
 
-因為 docute 是一個單頁應用，所以和傳統網站相比使用 Google Analytics 的方法略有不同，把下面的代碼添加到 HTML 文件裏即可 (放到 `body` 裏並且在加載 `docute.js` 之後):
+因为 docute 是一个单页应用，所以和传统网站相比使用 Google Analytics 的方法略有不同，把下面的代码添加到 HTML 文件里即可 (放到 `body` 里并且在加载 `docute.js` 之后):
 
 ```html
 <!-- Google Analytics -->
@@ -522,18 +605,18 @@ docute.router.afterEach(function (to) {
 ```
 
 <p class="warning">
-  注意請把 <code>UA-XXXXX-Y</code> 替換成你自己的跟蹤 ID.
+  注意请把 <code>UA-XXXXX-Y</code> 替换成你自己的跟踪 ID.
 </p>
 
 ### 部署到 GitHub
 
-有三個地方可供你存儲文檔:
+有三个地方可供你存储文档:
 
-- `./docs` 目錄
+- `./docs` 目录
 - master 分支
 - gh-pages 分支
 
-把文件 push 到 GitHub 之後在項目的 settings 裏選擇其中一個就可以了:
+把文件 push 到 GitHub 之后在项目的 settings 里选择其中一个就可以了:
 
 <img src="https://docute.js.org/assets/deploy.png" alt="deploy" width="500">
 
@@ -555,7 +638,7 @@ server {
 }
 ```
 
-如果你想讓網站通過子路徑例如 `/docs` 來訪問, 可以:
+如果你想让网站通过子路径比如 `/docs` 来访问, 可以:
 
 ```nginx
 server {
@@ -569,19 +652,19 @@ server {
 }
 ```
 
-## 常見疑問
+## 常见疑问
 
-### 這和 gitbook 有什麽不同?
+### 这和 gitbook 有什么不同?
 
-首先 docute 和 gitbook 其實很類似，因為它們都是用來寫文檔並且布局很像，但是 docute 不需要你在發布文檔前先把它編譯到 HTML 文件，並且配置很少的同時保證了實用性，你可以用 docute 寫出很優雅的文檔。
+首先 docute 和 gitbook 其实很类似，因为它们都是用来写文档并且布局很像，但是 docute 不需要你在发布文档前先把它编译到 HTML 文件，并且配置很少的同时保证了实用性，你可以用 docute 写出很优雅的文档。
 
-docute 同時總結了我們近幾年使用 gitbook/hexo/jekyll 這類工具撰寫文檔的經驗。
+docute 同时总结了我们近几年使用 gitbook/hexo/jekyll 这类工具撰写文档的经验。
 
-### 為什麽發布之前編譯不好?
+### 为什么发布之前编译不好?
 
-這並不是不好，只是有時候我們並不需要。使用一個單頁應用就足夠了，並且免去了很多啰嗦的構建程序。
+这并不是不好，只是有时候我们并不需要。使用一个单页应用就足够了，并且免去了很多啰嗦的构建程序。
 
-不過我們也有計劃支持「編譯到 HTML 文件」這一功能，同時也有支持[服務器端渲染的計劃](https://github.com/egoist/docute/issues/12)，後者意味著你不需要構建的同時也能享受更好的 SEO 體驗，雖然現在 Google 已經支持抓取動態網頁上的內容了。
+不过我们也有计划支持「编译到 HTML 文件」这一功能，同时也有支持[服务器端渲染的计划](https://github.com/egoist/docute/issues/12)，后者意味着你不需要构建的同时也能享受更好的 SEO 体验，虽然现在 Google 已经支持抓取动态网页上的内容了。
 
 ### How to evaluate script tag inside markdown?
 
