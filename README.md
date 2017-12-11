@@ -1,12 +1,11 @@
-# Vue.js 组件编码规范
+# weekly
+
+> 汇总平时看到优质文章和资源，技术、产品、管理均有，尽可能一周一篇
 
 > 这个 [链接](https://github.com/sqrthree/vuejs-component-style-guide/compare/master...pablohpsilva:master) 用来查看本翻译与英文版是否有差别（如果你没有看到 README.md 发生变化，那就意味着这份翻译文档是最新的）。
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/ChasonHong/weekly/master/img/logo.png"/>
-</p>
 
-### 其它语言
+# 其它语言
 * [英文](https://ChasonHong.github.io/weekly/#/)
 
 ## 目标
