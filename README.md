@@ -6,10 +6,6 @@
 
 > 这个 [链接](https://github.com/sqrthree/vuejs-component-style-guide/compare/master...pablohpsilva:master) 用来查看本翻译与英文版是否有差别（如果你没有看到 README.md 发生变化，那就意味着这份翻译文档是最新的）。
 
-
-## 其它语言
-* [英文](https://ChasonHong.github.io/weekly/#/)
-
 ### 信仰
 
 <p class="danger">
@@ -19,15 +15,15 @@
 ### 资源集散中心
 
 * 个人知识库 : 记录我看过的书、整理的资源
-* --
+* 待续...
 
 ### 性能优化站点
 
-* --
-* --
+* 待续...
+* 待续...
 
 ### 职业规划
 
-* --
-* --
+* 待续...
+* 待续...
 
