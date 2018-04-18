@@ -46,7 +46,8 @@ sudo gitlab-ctl reconfigure
 
 ```
 # 访问已修改后的ip地址或域名
-# 会提示更新密码
+# 初始化root帐号密码(默认进入更新密码页面设置新密码)
+# 登录帐号密码
 # UserName: root
 # PassWord: 已设置的密码
 ```
@@ -192,7 +193,14 @@ gitlab-rake gitlab:backup:restore BACKUP=xxxxxx
 sudo gitlab-ctl start
 ```
 
-### GitLab-Runner的安装与使用
+### gitlab服务器中安装git
+> 1. yum install git
+> 2. 生成密钥文件 使用ssh-keygen生成密钥文件.ssh/id_rsa.pub
+> 3. 在gitlab客户端上新建项目
+> 4. 将密钥复制到gitlab客户端
+> 5. 使用git命令上传或者clone项目到服务器中
+
+### GitLab-Runner的安装与使用(安装前可先查看git是否已经安装git --version)
 * 添加yum源
 ```
 curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.rpm.sh | sudo bash
@@ -217,13 +225,37 @@ yum install gitlab-ci-multi-runner
 > 3. 在安装过程中使用以下注册令牌： czoa_iPHqHwbD7msYXcn
 > 4. 启动 Runner!
 
-* 注册
+* 注册Runner
 
 ```
 # 执行
 gitlab-runner register
 ```
-根据提示分别输入url和token, 回车完成Runner注册
+根据提示分别输入url, token(注册令牌), 描述等, 回车完成Runner注册
+
+[gitlab-runner 常用相关指令](https://docs.gitlab.com/runner/commands/README.html)
+
+```
+# 注册
+gitlab-runner register
+# 安装
+gitlab-runner install
+# 列表
+gitlab-runner list
+# 启动
+gitlab-runner start
+# 重启
+gitlba-runner restart
+```
+
+# 启动gitlab-runner
+
+```
+# 启动
+gitlab-runner start
+```
+
+
 
 ### 持续集成部署
 * 进入搭建gitlab服务器设置免密登录
