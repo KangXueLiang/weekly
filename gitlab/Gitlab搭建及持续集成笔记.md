@@ -2,8 +2,8 @@
 
 ### 解决官方无法安装的情况
 
-> * Gitlab Community Edition 镜像使用帮助
-> * 在阿里云上通过Omnibus一键安装包安装Gitlab
+> * [Gitlab Community Edition 镜像使用帮助](https://mirror.tuna.tsinghua.edu.cn/help/gitlab-ce/)
+> * [在阿里云上通过Omnibus一键安装包安装Gitlab](https://github.com/hehongwei44/my-blog/issues/19)
 
 ### 编辑源
 
@@ -349,7 +349,7 @@ gitlab_rails['gitlab_email_from'] = 'root@VM_52_12_centos.localdomain'
 
 ### gitlab安装参考文档
 
-> * gitlab / gitlab-ce
+> * gitlab / https://packages.gitlab.com/gitlab/gitlab-ce
 > * 官网下载：www.gitlab.cc/downloads
 > * 官网安装说明：doc.gitlab.cc/ce/install/…
 > * 开源版本和企业版本对比：www.gitlab.cc/features/#e…
