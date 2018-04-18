@@ -212,10 +212,10 @@ yum install gitlab-ci-multi-runner
 * 如果要注册Shared Runner，你需要到管理界面的Runners页面里面去找注册token.管理界面的Runners页面大致信息如下:
 
 > ### Setup a shared Runner manually
-> * 1. 安装一个与 GitLab CI 兼容的 Runner (如需了解更多的安装信息，请查看 GitLab Runner)
-> * 2. 在 Runner 设置时指定以下 URL： http://20.195.133.77/
-> * 3. 在安装过程中使用以下注册令牌： czoa_iPHqHwbD7msYXcn
-> * 4. 启动 Runner!
+> 1. 安装一个与 GitLab CI 兼容的 Runner (如需了解更多的安装信息，请查看 GitLab Runner)
+> 2. 在 Runner 设置时指定以下 URL： http://20.195.133.77/
+> 3. 在安装过程中使用以下注册令牌： czoa_iPHqHwbD7msYXcn
+> 4. 启动 Runner!
 
 #### 注册
 1. 执行
