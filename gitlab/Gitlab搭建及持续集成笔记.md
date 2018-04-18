@@ -193,14 +193,14 @@ gitlab-rake gitlab:backup:restore BACKUP=xxxxxx
 sudo gitlab-ctl start
 ```
 
-### gitlab服务器中安装git
+### gitlab服务器中安装git(实现免密登录需要生成ssh-key)
 > 1. yum install git
 > 2. 生成密钥文件 使用ssh-keygen生成密钥文件.ssh/id_rsa.pub
 > 3. 在gitlab客户端上新建项目
 > 4. 将密钥复制到gitlab客户端
 > 5. 使用git命令上传或者clone项目到服务器中
 
-### GitLab-Runner的安装与使用(安装前可先查看git是否已经安装git --version)
+### GitLab-Runner的安装与使用
 * 添加yum源
 ```
 curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.rpm.sh | sudo bash
@@ -217,7 +217,7 @@ yum install gitlab-ci-multi-runner
 * 向GitLab-CI注册一个Runner需要两样东西: GitLab-CI的url和注册token.
 其中, token是为了确定你这个Runner是所有工程都能够使用的Shared Runner还是具体某一个工程才能使用的Specific Runner
 
-* 如果要注册Shared Runner，你需要到管理界面的Runners页面里面去找注册token.管理界面的Runners页面大致信息如下:
+* 如果要注册Shared Runner，你需要到管理界面的Runners页面(admin area-->overview-->Runners)去找URL和注册令牌(token).管理界面的Runners页面大致信息如下:
 
 > ### Setup a shared Runner manually
 > 1. 安装一个与 GitLab CI 兼容的 Runner (如需了解更多的安装信息，请查看 GitLab Runner)
@@ -231,7 +231,8 @@ yum install gitlab-ci-multi-runner
 # 执行
 gitlab-runner register
 ```
-根据提示分别输入url, token(注册令牌), 描述等, 回车完成Runner注册
+
+根据提示输入url, token(注册令牌), 描述等, 回车完成Runner注册
 
 [gitlab-runner 常用相关指令](https://docs.gitlab.com/runner/commands/README.html)
 
@@ -299,7 +300,7 @@ sudo make install
 node -v
 ```
 
-* 在项目脚手架添加.gitlab-ci.yml(配置上传代码到gitlab服务器构建部署到代码服务器，)
+* 在项目脚手架添加.gitlab-ci.yml自动化脚本(配置上传代码到gitlab服务器构建部署到代码服务器，)
 ```
 # 定义 stages
 stages:
