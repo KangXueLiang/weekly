@@ -103,6 +103,7 @@ server {
     }
 }
 ```
+
 ```
 # 检查配置
 /usr/local/nginx-1.5.1/sbin/nginx -tc conf/nginx.conf
@@ -202,10 +203,12 @@ sudo gitlab-ctl start
 
 ### GitLab-Runner的安装与使用
 * 添加yum源
+
 ```
 curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.rpm.sh | sudo bash
 ```
 * 安装
+
 ```
 yum install gitlab-ci-multi-runner
 ```
@@ -300,7 +303,8 @@ sudo make install
 node -v
 ```
 
-* 在项目脚手架添加.gitlab-ci.yml自动化脚本(配置上传代码到gitlab服务器构建部署到代码服务器，)
+* 在项目脚手架添加.gitlab-ci.yml自动化脚本(用来上传代码到gitlab服务器后自动构建打包和部署到代码服务器)
+
 ```
 # 定义 stages
 stages:
@@ -352,20 +356,22 @@ deploy_uat_job:
 
 * 部署对应的文件夹要先去部署代码的服务器创建, 不然会提示匹配不到对应文件夹
 
-
 ### 配置邮箱
 * GitLab中使用postfix进行邮件发送。因此，可以卸载系统中自带的sendmail。 使用yum list installed查看系统中是否存在sendmail，若存在，则使用yum remove sendmail指令进行卸载。
 
 * 测试系统是否可以正常发送邮件。 echo "Test mail from postfix" | mail -s "Test Postfix" xxx@xxx.com
 
 * 报错:
+
 ```
 postfix: fatal: parameter inet_interfaces: no local interface found for ::1
 ```
 * 修改配置
+
 ```
 vim  /etc/postfix/main.cf
 ```
+
 ```
 # 发现配置为：
 inet_interfaces = localhost
@@ -389,6 +395,7 @@ echo "Test mail from postfix" | mail -s "Test Postfix" xxx@xxx.com
 
 当邮箱收到系统发送来的邮件时, 将系统的地址复制下来, 如: root@VM_52_12_centos.localdomain, 打开/etc/gitlab/gitlab.rb, 将
 ```
+
 # gitlab_rails['gitlab_email_from'] = 'gitlab@example.com'
 修改为
 gitlab_rails['gitlab_email_from'] = 'root@VM_52_12_centos.localdomain'
@@ -396,11 +403,16 @@ gitlab_rails['gitlab_email_from'] = 'root@VM_52_12_centos.localdomain'
 
 保存后，执行sudo gitlab-ctl reconfigure重新编译GitLab. 如果邮箱的过滤功能较强,请添加系统的发件地址到邮箱的白名单中, 防止邮件被过滤
 
-
 ### 错误处理
 
-待续
+> * Q: gitlab-runner 去执行脚本时候会出现“Host key verification failed”
+> * A: 因为这个key是管理员root目录下，gitlab-runner这个用户没有这个rsa密钥, 使用gitlab-runner帐号和密码登录gitlab服务器.
+执行:
 
+```
+ssh-keygen -t rsa
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@ip(部署代码的服务器IP地址)
+```
 
 ### gitlab安装参考文档
 
