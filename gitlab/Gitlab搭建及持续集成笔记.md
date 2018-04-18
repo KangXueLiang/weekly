@@ -246,7 +246,7 @@ ssh-keygen -t rsa
 ssh-copy-id -i ~/.ssh/id_rsa.pub root@ip(部署代码的服务器IP地址)
 ```
 
-* 在项目脚手架添加.gitlan-ci.yml
+* 在项目脚手架添加.gitlab-ci.yml
 ```
 # 定义 stages
 stages:
