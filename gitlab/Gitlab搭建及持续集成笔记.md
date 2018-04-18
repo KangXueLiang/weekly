@@ -255,10 +255,8 @@ gitlba-runner restart
 gitlab-runner start
 ```
 
-
-
 ### 持续集成部署
-* 进入搭建gitlab服务器设置免密登录
+* 进入搭建gitlab的服务器设置免密登录
 
 ```
 # 先设置用户root免密登录：
@@ -278,7 +276,29 @@ ssh-keygen -t rsa
 ssh-copy-id -i ~/.ssh/id_rsa.pub root@ip(部署代码的服务器IP地址)
 ```
 
-* 在项目脚手架添加.gitlab-ci.yml
+* 安装Nodejs[参考文档](https://www.cnblogs.com/lpbottle/p/7733397.html)(上传代码到gitlab服务器时要使用npm构建打包所以要先在部署gitlab的服务器安装好Node)
+
+```
+# 从源码下载Nodejs
+1. cd /usr/local/src
+2. wget https://npm.taobao.org/mirrors/node/v8.7.0/node-v8.7.0.tar.gz
+# 解压缩 nodejs 安装包
+tar xvf node-v8.7.0.tar.gz
+# 进入解压的node文件夹，安装必要的编译软件包
+cd node-v8.7.0
+sudo yum install gcc gcc-c++
+# 在这里，先检查一下 gcc 的版本(如果版本号低于4.9.4，请先升级gcc，因为nodejs8.7.0编译时gcc版本要求在4.9.4+)
+gcc -v
+# 如果gcc版本号在4.9.4+，或者完成gcc升级后，开始编译nodejs
+./configure
+make
+# 安装Nodejs
+sudo make install
+# 验证是否正确安装
+node -v
+```
+
+* 在项目脚手架添加.gitlab-ci.yml(配置上传代码到gitlab服务器构建部署到代码服务器，)
 ```
 # 定义 stages
 stages:
