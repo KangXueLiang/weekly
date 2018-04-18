@@ -7,17 +7,14 @@
 
 ### 编辑源
 
-##### 使用清华大学 TUNA 镜像源 打开网址将内容复制到gitlab-ce.repo文件中，编辑路径vim /etc/yum.repos.d/gitlab-ce.repo
+##### [使用清华大学 TUNA 镜像源](https://mirror.tuna.tsinghua.edu.cn/help/gitlab-ce/) 打开网址将内容复制到gitlab-ce.repo文件中，编辑路径vim /etc/yum.repos.d/gitlab-ce.repo
 
 ```
 [gitlab-ce]
-name=gitlab-ce
-baseurl=http://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6
-repo_gpgcheck=0
+name=Gitlab CE Repository
+baseurl=https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el$releasever/
 gpgcheck=0
 enabled=1
-gpgkey=https://packages.gitlab.com/gpg.key
-
 ```
 ### 更新本地 YUM 缓存
 
@@ -207,6 +204,7 @@ sudo gitlab-ctl start
 ```
 curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.rpm.sh | sudo bash
 ```
+
 * 安装
 
 ```
@@ -217,7 +215,7 @@ yum install gitlab-ci-multi-runner
 
 * 安装好gitlab-ci-multi-runner这个软件之后, 我们就可以用它向GitLab-CI注册Runner了.
 
-* 向GitLab-CI注册一个Runner需要两样东西: GitLab-CI的url和注册token.
+* 向GitLab-CI注册一个Runner需要两样东西: GitLab-CI的url和注册令牌(token).
 其中, token是为了确定你这个Runner是所有工程都能够使用的Shared Runner还是具体某一个工程才能使用的Specific Runner
 
 * 如果要注册Shared Runner，你需要到管理界面的Runners页面(admin area-->overview-->Runners)去找URL和注册令牌(token).管理界面的Runners页面大致信息如下:
@@ -265,7 +263,7 @@ gitlab-runner start
 ```
 # 先设置用户root免密登录：
 ssh-keygen -t rsa
-ssh-copy-id -i ~/.ssh/id_rsa.pub root@ip（部署代码的服务器IP地址）
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@ip（root和id为需要部署代码的服务器管理员帐号和IP地址）
 
 # 修改gitlab-runner用户的密码
 passwd gitlab-runner
@@ -279,7 +277,6 @@ ssh gitlab-runner@id
 ssh-keygen -t rsa
 ssh-copy-id -i ~/.ssh/id_rsa.pub root@ip(部署代码的服务器IP地址)
 ```
-
 
 * 安装Nodejs[参考文档](https://www.cnblogs.com/lpbottle/p/7733397.html)(上传代码到gitlab服务器时要使用npm构建打包所以要先在部署gitlab的服务器安装好Node)
 
