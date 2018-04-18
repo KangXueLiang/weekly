@@ -418,7 +418,7 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub root@ip(部署代码的服务器IP地址)
 
 > * gitlab / https://packages.gitlab.com/gitlab/gitlab-ce
 > * 官网下载：www.gitlab.cc/downloads
-> * 官网安装说明：doc.gitlab.cc/ce/install/…
+> * 官网安装说明：[doc.gitlab.cc/ce/install/…](https://docs.gitlab.com.cn/ce/install/requirements.html)
 > * 开源版本和企业版本对比：www.gitlab.cc/features/#e…
 > * https://www.cnblogs.com/weifeng1463/p/7714492.html
 > * https://www.jianshu.com/p/2b43151fb92e
