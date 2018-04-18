@@ -217,9 +217,10 @@ yum install gitlab-ci-multi-runner
 > 3. 在安装过程中使用以下注册令牌： czoa_iPHqHwbD7msYXcn
 > 4. 启动 Runner!
 
-#### 注册
-1. 执行
+* 注册
+
 ```
+# 执行
 gitlab-runner register
 ```
 根据提示分别输入url和token, 回车完成Runner注册
