@@ -1,11 +1,5 @@
 ## Centos搭建gitlab及持续集成
 
-### 官网安装教程
-> * gitlab / gitlab-ce
-> * 官网下载：www.gitlab.cc/downloads
-> * 官网安装说明：doc.gitlab.cc/ce/install/…
-> * 开源版本和企业版本对比：www.gitlab.cc/features/#e…
-
 ### 解决官方无法安装的情况
 
 > * Gitlab Community Edition 镜像使用帮助
@@ -355,5 +349,9 @@ gitlab_rails['gitlab_email_from'] = 'root@VM_52_12_centos.localdomain'
 
 ### gitlab安装参考文档
 
+> * gitlab / gitlab-ce
+> * 官网下载：www.gitlab.cc/downloads
+> * 官网安装说明：doc.gitlab.cc/ce/install/…
+> * 开源版本和企业版本对比：www.gitlab.cc/features/#e…
 > * https://www.cnblogs.com/weifeng1463/p/7714492.html
 > * https://www.jianshu.com/p/2b43151fb92e
