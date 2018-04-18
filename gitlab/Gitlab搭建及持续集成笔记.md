@@ -248,7 +248,7 @@ gitlab-runner start
 gitlba-runner restart
 ```
 
-# 启动gitlab-runner
+### 启动gitlab-runner
 
 ```
 # 启动
@@ -276,7 +276,8 @@ ssh-keygen -t rsa
 ssh-copy-id -i ~/.ssh/id_rsa.pub root@ip(部署代码的服务器IP地址)
 ```
 
-* 安装Nodejs[参考文档](https://www.cnblogs.com/lpbottle/p/7733397.html)(上传代码到gitlab服务器时要使用npm构建打包所以要先在部署gitlab的服务器安装好Node)
+
+* 安装Nodejs[参考文档](https://www.cnblogs.com/lpbottle/p/7733397.html)(上传代码到gitlab服务器时要使用npm构建打包所以要先在部署gitlab的服务器安装好Node)
 
 ```
 # 从源码下载Nodejs
