@@ -278,7 +278,7 @@ ssh-keygen -t rsa
 ssh-copy-id -i ~/.ssh/id_rsa.pub root@ip(部署代码的服务器IP地址)
 ```
 
-免密登录设置可以参考此文档[如何配置 SSH 免密码登录](https://github.com/ChasonHong/weekly.git)
+免密登录设置可以参考此文档[如何配置 SSH 免密码登录](https://blog.csdn.net/fangyihang1262/article/details/54955634)
 
 * 安装Nodejs[参考文档](https://www.cnblogs.com/lpbottle/p/7733397.html)(上传代码到gitlab服务器时要使用npm构建打包所以要先在部署gitlab的服务器安装好Node)
 
