@@ -16,6 +16,7 @@ baseurl=https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el$releasever/
 gpgcheck=0
 enabled=1
 ```
+
 ### 更新本地 YUM 缓存
 
 ```
@@ -72,6 +73,7 @@ sudo gitlab-rake cache:clear RAILS_ENV=production
 ### nginx配置
 
 解决 80 端口被占用(没占用忽略此配置)
+
 ```
 upstream gitlab {
      server 114.55.111.111:8081 ;
